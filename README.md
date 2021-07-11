@@ -23,7 +23,7 @@ MySQL	8.0.22<br>
 <br>
 3.如果还是不行，可以联系我QQ1357621322，我会将项目挂载在云服务器上，可以直接通过HTTP路径访问项目。<br>
 
-# —————English Ver.—————————————————————————————
+# —English Ver.—————
 This is a JavaEE-SSM Project. It's a lesson(cource) manager system.<br>
 frameworks:SpringMVC + Spring +Mybatis。<br>
 It includes user system, student course selection system and administrator system.<br>
