@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("./leaf.jpg") no-repeat center 0;
+}
+
+.content {
+  position: absolute;
+  width: 400px;
+  height: 420px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(6, 63, 44, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px 0px;
+}
+
+.content h1 {
+  color: #fff;
+  position: absolute;
+  top: 30px;
+}
+
+.content div {
+  width: 400px;
+  height: 60px;
+  margin-bottom: 50px;
+  /* background-color: black; */
+  line-height: 60px;
+}
+
+.content p {
+  position: absolute;
+  color: #fff;
+  font-size: 30px;
+  right: 290px;
+}
+
+.content .warnning {
+  width: 320px;
+  height: 40px;
+  line-height: 20px;
+  position: absolute;
+  left: 50px;
+  font-size: 20px;
+  color: red;
+  /* white-space: nowrap; */
+}
+
+#warnning1 {
+  top: 180px;
+  display: none;
+}
+
+#warnning2 {
+  top: 290px;
+  display: none;
+}
+
+.content input {
+  display: inline-block;
+  width: 220px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #555;
+  position: absolute;
+  left: 120px;
+  border: 0px;
+  outline: none;
+  font-size: 24px;
+  padding: 0px 20px;
+  margin-top: 12px;
+  color: #fff;
+}
+
+.content input:nth-child(3) {
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #C5C5C5;
+  color: black;
+  font-weight: bold;
+}
+
+
+
+.tip{
+  width: 400px;
+  height: 60px;
+  position: absolute;
+  right: 20px;
+  bottom: 100px;
+}
+
+.tip img{
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.tip img:hover{
+  background-color: white;
+}
+
+.tip p{
+  color: #ffffff;
+  background-color: #242424;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+}
+
+.registerBtn{
+  bottom: 18px;
+  background-color: #0088FF !important;
+}
+
+#managerLogin{
+  width: 100px;
+  height: 40px;
+  background-color: #0088FF;
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  text-decoration: none;
+  line-height: 40px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+}

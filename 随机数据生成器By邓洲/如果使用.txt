@@ -1,0 +1,6 @@
+通过Maven下载相关的Springboot-test依赖（新建一个Maven项目，并替换pom.xml文件）。
+mvn install  下载所有依赖包并maven刷新依赖包（一定要刷新）
+然后将RandomDataExcutor放到test文件夹里，
+MybatisPlusApplication.java放到resources文件夹。
+将配置文件添加到项目环境。
+直接执行Random类里面的方法（执行有顺序，按照期末报告里的2.1数据采集操作），否则因为表间依赖导致无法生成可用数据。

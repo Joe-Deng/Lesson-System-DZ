@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学生选课系统</title>
+  <link rel="stylesheet" href="/LessonSystem/student.css">
+  <script src="/LessonSystem/jquery-1.11.3.min.js"></script>
+</head>
+
+<body class="style1">
+  <header>
+    <h1>选课管理系统</h1>
+    <!-- 课程表入口 -->
+    <button id="scheduleEntry">课程表</button>
+    <!-- 学生信息 -->
+    <div id="StudentInfo">
+      <p>邓洲</p>
+      <p>2014411481201</p>
+    </div>
+    <!-- 风格系统 -->
+    <div class="choose-style">
+      <p>风格</p>
+      <div class="style-btn"></div>
+      <div class="style-content">
+        <!-- 典雅 -->
+        <div class="style-item style1" id="styleItem1">
+          <p class="style-name">典雅</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 艳丽 -->
+        <div class="style-item style2" id="styleItem2">
+          <p class="style-name">艳丽</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 卡通 -->
+        <div class="style-item" id="styleItem3">
+          <p class="style-name">卡通</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 科技 -->
+        <div class="style-item" id="styleItem4">
+          <p class="style-name">科技</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <left></left>
+  <center>
+    <!-- 课程系统页面 -->
+    <div id="lessonSystem">
+      <div class="searchBar">
+        <input id="searchInput" type="text" placeholder="请输入课程名">
+        <div id="search">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.663 15.663C15.8023 15.5235 15.9678 15.4129 16.1499 15.3374C16.332 15.2619 16.5272 15.2231 16.7243 15.2231C16.9214 15.2231 17.1166 15.2619 17.2987 15.3374C17.4808 15.4129 17.6462 15.5235 17.7855 15.663L23.5605 21.438C23.842 21.7193 24.0002 22.1008 24.0003 22.4987C24.0005 22.8966 23.8426 23.2783 23.5613 23.5597C23.28 23.8412 22.8985 23.9994 22.5006 23.9996C22.1027 23.9997 21.721 23.8418 21.4395 23.5605L15.6645 17.7855C15.5251 17.6462 15.4144 17.4808 15.339 17.2987C15.2635 17.1166 15.2246 16.9214 15.2246 16.7242C15.2246 16.5271 15.2635 16.3319 15.339 16.1498C15.4144 15.9677 15.5251 15.8023 15.6645 15.663H15.663Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.75 18C10.8334 18 11.9062 17.7866 12.9071 17.372C13.9081 16.9574 14.8175 16.3497 15.5836 15.5836C16.3497 14.8175 16.9574 13.9081 17.372 12.9071C17.7866 11.9062 18 10.8334 18 9.75C18 8.66659 17.7866 7.5938 17.372 6.59286C16.9574 5.59193 16.3497 4.68245 15.5836 3.91637C14.8175 3.15029 13.9081 2.5426 12.9071 2.12799C11.9062 1.71339 10.8334 1.5 9.75 1.5C7.56196 1.5 5.46354 2.36919 3.91637 3.91637C2.36919 5.46354 1.5 7.56196 1.5 9.75C1.5 11.938 2.36919 14.0365 3.91637 15.5836C5.46354 17.1308 7.56196 18 9.75 18V18ZM19.5 9.75C19.5 12.3359 18.4728 14.8158 16.6443 16.6443C14.8158 18.4728 12.3359 19.5 9.75 19.5C7.16414 19.5 4.68419 18.4728 2.85571 16.6443C1.02723 14.8158 0 12.3359 0 9.75C0 7.16414 1.02723 4.68419 2.85571 2.85571C4.68419 1.02723 7.16414 0 9.75 0C12.3359 0 14.8158 1.02723 16.6443 2.85571C18.4728 4.68419 19.5 7.16414 19.5 9.75V9.75Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0">
+            <rect width="24" height="24" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </div>
+        <div id="search-match">
+
+        </div>
+      </div>
+
+      <div class="match-bar">
+        <div id="match-form">
+          <div class="match-item">
+            <label>学院</label>
+            <select name="college_id" id="collegeSelect">
+            </select>
+          </div>
+          <div class="match-item">
+            <label>班级</label>
+            <select name="class_id" id="classSelect"></select>
+          </div>
+          <button class="submitButton" id="submitButton">查询</button>
+
+        </div>
+      </div>
+      <div id="result-table">
+        <!-- <div class="tb-row">
+          <div class="tb-col lessonID">20171310</div>
+          <div class="tb-col lessonName">近代史纲要</div>
+          <div class="tb-col deleteBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12V12ZM6 11.25C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H6Z" fill="#B90012"/>
+                </svg>
+          </div>
+          <div class="tb-col addBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12ZM12.75 6C12.75 5.80109 12.671 5.61032 12.5303 5.46967C12.3897 5.32902 12.1989 5.25 12 5.25C11.8011 5.25 11.6103 5.32902 11.4697 5.46967C11.329 5.61032 11.25 5.80109 11.25 6V11.25H6C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H11.25V18C11.25 18.1989 11.329 18.3897 11.4697 18.5303C11.6103 18.671 11.8011 18.75 12 18.75C12.1989 18.75 12.3897 18.671 12.5303 18.5303C12.671 18.3897 12.75 18.1989 12.75 18V12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H12.75V6Z" fill="#0064C2"/>
+              </svg>
+          </div>
+        </div> -->
+        <!-- 提示弹窗 -->
+      </div>
+      <div class="diolog" id="diologAdd">
+        <button class="confirm" id="confirmAdd">确定</button>
+        <button class="cancle" id="cancleAdd">取消</button>
+      </div>
+      <div class="diolog" id="diologDelete">
+
+        <button class="confirm" id="confirmDelete">确定</button>
+        <button class="cancle" id="cancleDelete">取消</button>
+      </div>
+      <!-- 选课弹窗 -->
+      <div id="diologChoose">
+        <button id="closeDiologBtn">x</button>
+        <h1>可选课程</h1>
+        <div id="choose-table">
+          <!-- <div class="choose-row">
+            <div class="choose-col className">
+              <p>马克思主义16级1班</p>
+            </div>
+            <div class="choose-col lessonName">
+              <p>马克思主义基本原理</p>
+            </div>
+            <div class="choose-col teacherName">
+              <p>朱筠</p>
+            </div>
+            <div class="choose-col schedule">
+              <p>周1.6第3节</p>
+            </div>
+            <div class="choose-col" id="chooseBtn">+</div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="controllerBar">
+        <button class="controlBtn" id="firstBtn">第一页</button>
+        <button class="controlBtn" id="preBtn">上一页</button>
+        <p id="dataNumInfo">0/0页 共0条</p>
+        <button class="controlBtn" id="nextBtn">下一页</button>
+        <button class="controlBtn" id="lastBtn">最后一页</button>
+      </div>
+    </div>
+
+    <!-- 课程表 -->
+    <div id="schedule">
+      <h1>课程表</h1>
+      <button id="closeScheduleBtn">x</button>
+      <div id="schedule-content">
+        <div id="week-line">
+          <p>周一</p>
+          <p>周二</p>
+          <p>周三</p>
+          <p>周四</p>
+          <p>周五</p>
+          <p>周六</p>
+          <p>周日</p>
+        </div>
+        <div id="day-line">
+          <p>上午</p>
+          <p>下午</p>
+          <p>晚</p>
+        </div>
+        <div id="schedule-table">
+          <div class="sd-col">
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+          </div>
+          <div class="sd-col">
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+          </div>
+          <div class="sd-col">
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+          </div>
+          <div class="sd-col">
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+          </div>
+          <div class="sd-col">
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+          </div>
+          <div class="sd-col">
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+          </div>
+          <div class="sd-col">
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+            <div class="sd-row"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="scheduleDiolog">
+        <h1>课程详情</h1>
+        <button id="closeScheduleDiologBtn">x</button>
+        <p>内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排内容撑起一排</p>
+        <button id="cancelLessonBtn">退选课程</button>
+        <div id="cancelLessonDiolog">
+          <h2>确认退选?</h2>
+          <button id="confirmCL">确认</button>
+          <button id="cancelCL">取消</button>
+        </div>
+      </div>
+
+    </div>
+  </center>
+  <footer>
+    <h1>Produce By 邓洲</h1>
+    <div id="exit">退出系统</div>
+    <div id="exitConfirm">
+      <p>确认要退出系统吗？</p>
+      <button id="confirmExit">确认</button>
+      <button id="cancelExit">取消</button>
+    </div>
+  </footer>
+</body>
+
+<script>
+  const BaseURL = "http://localhost:8080/LessonSystem";
+  //每页数据最大显示数
+  const MaxPerPage = 20;
+  var studentName;
+  var studentId;
+  //课程表
+  let scheduleList = [];
+  //全局抽象方法
+  let requestRefreshSchedule = function() {};
+
+
+
+  $(function() {
+    //函数域局部变量申明
+    let collegeList = [];
+    let classList = [];
+    let lessonList = [];
+    let instructList = [];
+    let currentPage = 0;
+    let totalPage = 0;
+    let total = 0;
+    //用于班级选项classSelect对于当前学院的检测
+    let currentCollege = 0;
+    //这个是choose-table表单对应的result-table序号
+    let chooseIndex = 0;
+    //元素定义
+    const deleteDiolog = $("#diologDelete");
+    const addDiolog = $("#diologAdd")
+    const confirmDelete = $("#confirmDelete");
+    const cancleDelete = $("#cancleDelete");
+
+    //学院列表点击
+    $("#collegeSelect")[0].onclick = () => {
+      if (collegeList.length == 0) {
+        $.ajax({
+          url: BaseURL + "/dz/college/get_all",
+          success: res => {
+            collegeList = JSON.parse(res)
+            console.log(collegeList)
+              //刷新学院列表
+            refreshListView();
+          },
+          error: err => {
+            throw (err)
+          }
+        });
+      }
+    }
+
+    //刷新学院列表
+    function refreshListView() {
+      // let fragment = document.createDocumentFragment();
+      for (let college of collegeList) {
+        $("#collegeSelect").append(`<option value="${college.id}">${college.name}</option>`)
+      }
+      //让班级列表出现
+      // $(".match-item:eq(1)").css("display", "block");
+    }
+
+    //班级列表点击
+    $("#classSelect")[0].onclick = () => {
+      if (currentCollege == $("#collegeSelect")[0].value) return;
+      let collegeId = $("#collegeSelect")[0].value;
+      //更新当前对应的collegeId
+      currentCollege = collegeId;
+      //准备网络查询
+      let url = BaseURL + "/dz/class/get?college_id=" + collegeId;
+      console.log(url);
+      $.ajax({
+        url,
+        success: res => {
+          classList = JSON.parse(res)
+          console.log(classList)
+            //刷新班级列表
+          refreshClassListView();
+        },
+        error: err => {
+          throw (err)
+        }
+      });
+
+    }
+
+    //刷新班级列表
+    function refreshClassListView() {
+      $("#classSelect").empty();
+      $("#classSelect").append(`<option value=""></option>`)
+      for (let classItem of classList) {
+        $("#classSelect").append(`<option value="${classItem.id}">${classItem.name}</option>`)
+      }
+    }
+
+    //查询按钮点击
+    $("#submitButton")[0].onclick = () => {
+      lessonRequest();
+    }
+
+    // 发送ajax请求获取lesson数据
+    function lessonRequest(page) {
+      let url = BaseURL + "/dz/lesson/search?college_id=" + $("#collegeSelect")[0].value;
+      console.log($("#classSelect")[0].value)
+      if (page) {
+        url += "&page=" + page + "&limit=" + MaxPerPage
+      }
+      console.log(url);
+      $.ajax({
+        url,
+        success: function(response) {
+          console.log(response)
+          let result = JSON.parse(response);
+          lessonList = result.list;
+          totalPage = result.pages;
+          //根据结果更新当前页数，避免网络请求异常但客户端更新了页数
+          currentPage = result.pageNum;
+          total = result.total;
+
+          //先清空屏幕所有数据
+          $("#result-table").empty();
+          //结果表添加所有数据行
+          for (let lesson of lessonList) {
+            $("#result-table").append(`
+            <div class="tb-row">
+              <div class="tb-col lessonID" >${lesson.id}</div>
+              <div class="tb-col lessonName" >${lesson.name}</div>
+              <div class="tb-col deleteBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12V12ZM6 11.25C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H6Z" fill="#B90012"/>
+                </svg>
+          </div>
+          <div class="tb-col addBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12ZM12.75 6C12.75 5.80109 12.671 5.61032 12.5303 5.46967C12.3897 5.32902 12.1989 5.25 12 5.25C11.8011 5.25 11.6103 5.32902 11.4697 5.46967C11.329 5.61032 11.25 5.80109 11.25 6V11.25H6C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H11.25V18C11.25 18.1989 11.329 18.3897 11.4697 18.5303C11.6103 18.671 11.8011 18.75 12 18.75C12.1989 18.75 12.3897 18.671 12.5303 18.5303C12.671 18.3897 12.75 18.1989 12.75 18V12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H12.75V6Z" fill="#0064C2"/>
+              </svg>
+              </div>
+            </div>
+                `);
+          }
+
+          //请求成功更新控制栏
+          refreshControllerBtn();
+          console.log(currentPage + "/" + totalPage + ":" + total + "条")
+        }
+      });
+    }
+    //发送ajax请求获取Instruct数据
+    function instructRequest(lessonId) {
+      let url = BaseURL + "/dz/instruct/find?lesson_id=" + lessonId;
+      console.log(url);
+
+      $.ajax({
+        url,
+        success: function(response) {
+          console.log(response)
+          instructList = JSON.parse(response);
+
+          //先清空屏幕所有数据
+          $("#choose-table").empty();
+          if (instructList.length == 0) {
+            //添加提示
+            $("#choose-table").append(`<h1>抱歉，该课程未开课</h1>`)
+          } else {
+            //结果表添加所有数据行
+            for (let instruct of instructList) {
+              $("#choose-table").append(`
+            <div class="choose-row">
+            <div class="choose-col className">
+              <p>${instruct.className}</p>
+            </div>
+            <div class="choose-col lessonName">
+              <p>${instruct.lessonName}</p>
+            </div>
+            <div class="choose-col teacherName">
+              <p>${instruct.teacherName}</p>
+            </div>
+            <div class="choose-col schedule">
+              <p>周${parseInt((instruct.schedule-1)/5) +1}第${(instruct.schedule-1)%5+1}节</p>
+            </div>
+            <div class="choose-col" id="chooseBtn">+</div>
+          </div>
+                `);
+            }
+          }
+
+        }
+      });
+    }
+
+
+    //结果表委托删除按钮点击事件
+    $("#result-table").on("click", '.deleteBtn', e => {
+      //当前选择行的JQ对象
+      let row = $(e.target).parents('.tb-row');
+      console.log(row)
+        //当前点击的行序号
+      let deleteIndex = row.index();
+      //弹出会话框，提示是否删除
+      deleteDiolog.css("display", "block");
+
+      //为弹窗添加新的文字内容
+      deleteDiolog.append(`
+      <p class="warnning-word" id="warnning-word">确认要取消课程《${lessonList[deleteIndex].name}》？ </p>
+      `)
+
+      //弹窗确认按钮事件点击
+      confirmDelete[0].onclick = () => {
+        //弹窗消失
+        deleteDiolog.css("display", "none");
+        //清空弹窗警告的文字内容
+        $("#warnning-word").remove();
+        //真实网络取消课程
+        //网络请求删除课程
+        let url = BaseURL + "/dz/instruct/delete?class_id=" + lessonList[deleteIndex].classId +
+                "&lesson_id=" + currentClickInstruct.lessonId;
+        console.log(url);
+        $.ajax({
+          url,
+          success: function(response) {
+            //刷新课程表
+            console.log("response:")
+            console.log(response);
+            requestRefreshSchedule();
+            console.log("课程表刷新");
+          }
+        });
+        //按钮变化
+        row.children(".addBtn").css("display", "block");
+        row.children(".deleteBtn").css("display", "none");
+      }
+
+    })
+
+    //结果表委托添加按钮点击事件
+    $("#result-table").on("click", '.addBtn', e => {
+      //当前选择行的JQ对象
+      let row = $(e.target).parents('.tb-row');
+      console.log(row)
+        //当前点击的行序号
+      chooseIndex = row.index()
+
+      //弹窗选择课程页面%%%%%%%
+      $("#diologChoose").css("display", "block");
+      //网络查询新数据添加
+      instructRequest(lessonList[chooseIndex].id)
+        //记录当前序号，用于结果处理
+
+    })
+
+    //弹窗取消按钮点击
+    cancleDelete[0].onclick = () => {
+      //弹窗消失
+      deleteDiolog.css("display", "none");
+      //清空弹窗警告的文字内容
+      $("#warnning-word").remove();
+    }
+
+
+    //选课弹窗逻辑
+    $("#choose-table").on("click", "#chooseBtn", function(e) {
+      let row = $(e.target).parents(".choose-row");
+      let chooseBtn = $("#chooseBtn");
+      //弹窗是否选择
+      addDiolog.css("display", "block");
+      $("#warnning-word2").remove();
+      addDiolog.append(`
+      <p class="warnning-word" id="warnning-word2">确认要选择
+        ${instructList[row.index()].teacherName} 老师的
+        课程《${instructList[row.index()].lessonName}》（
+        周${parseInt((instructList[row.index()].schedule-1)/5) +1}第${(instructList[row.index()].schedule-1)%5+1}节）？</p>
+      `)
+
+      //重绑事件
+      $("#confirmAdd").click(() => {
+        //先判断是否和自己的课程重复
+        console.log(scheduleList);
+        console.log(instructList)
+        console.log(row);
+        let isSame = false;
+        scheduleList.forEach((item, index) => {
+          if (item.lessonId == instructList[row.index()].lessonId) {
+            isSame = true;
+          }
+        })
+        addDiolog.css("display", "none");
+        if (isSame) {
+          alert("不能同时选择同一门课程，请查看课程表");
+          return;
+        }
+
+        $("#diologChoose").css("display", "none");
+        //结果处理
+        $(".tb-row").eq(chooseIndex).children(".addBtn").css("display", "none");
+        $(".tb-row").eq(chooseIndex).children(".deleteBtn").css("display", "block");
+        //网络选择课程*********
+        //根据teacher和schedule俩添加指定课程Instruct
+        addMyInstruct(instructList[row.index()].teacherId, instructList[row.index()].schedule)
+          //
+      })
+    })
+
+
+
+    //网络添加课程
+    function addMyInstruct(teacherId, schedule) {
+      let url = BaseURL + "/dz/instruct/add?teacher_id=" + teacherId +
+        "&schedule=" + schedule +
+        "&username=" + studentId;
+      console.log(url);
+      $.ajax({
+        url,
+        success: function(response) {
+
+          if (response == "success") {
+            console.log("添加成功，刷新课程表")
+            requestRefreshSchedule();
+          }
+        }
+      });
+    }
+
+    $("#cancleAdd").click(() => {
+      addDiolog.css("display", "none");
+    })
+
+    $("#closeDiologBtn").click(() => {
+      $("#diologChoose").css("display", "none");
+    })
+
+
+    // 搜索匹配--------------------
+    let matchLessonList = [];
+    let maxMatch = 5;
+    //聚焦就匹配
+    $("#searchInput").focus((e) => {
+      console.log("聚焦：" + e.target.value)
+      if (e.target.value) {
+        //无防抖的请求，及时更新且避免闪屏
+        requestSearchMatch(e.target.value)
+      }
+      $("#search-match").css("display", "block");
+    })
+
+    //失去焦点就隐藏
+    $("#searchInput").blur(() => {
+
+
+      //点击匹配项会因为失去输入框焦点而无法出发事件，因此需要延时消失
+      setTimeout(() => {
+        $("#search-match").css("display", "none");
+      }, 200)
+    })
+
+    $("#searchInput")[0].oninput = e => {
+      // console.log(e.target.value)
+      debounce(e.target.value)
+    }
+
+    let timer;
+    //防抖函数
+    function debounce(keyword) {
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        console.log(keyword)
+        requestSearchMatch(keyword)
+      }, 500)
+    }
+
+    //模糊匹配网络请求
+    function requestSearchMatch(keyword) {
+      //先清空
+      $("#search-match").empty();
+      //再请求
+      if (keyword != null && keyword != "") {
+        let url = BaseURL + "/dz/lesson/match?keyword=" + keyword +
+          "&limit=" + maxMatch;
+        console.log(url);
+        $.ajax({
+          url,
+          success: function(response) {
+            //保存数据
+            let result = JSON.parse(response);
+            matchLessonList = result.list;
+            console.log(result)
+              //添加Dom
+            for (matchLesson of matchLessonList) {
+              $("#search-match").append(`
+            <div class="search-match-item">
+              ${matchLesson.name}
+            </div>
+            `)
+            }
+          }
+        });
+      }
+    }
+
+    //为匹配项添加点击事件
+    $("#search-match").on("click", ".search-match-item", function(e) {
+      let index = $(e.target).index();
+      console.log(index)
+      let lessonId = matchLessonList[index].id;
+      console.log(lessonId);
+      $("#searchInput")[0].value = matchLessonList[index].name
+    })
+
+    //最后是搜索按钮的点击事件
+    $("#search").click(() => {
+      let lessonName = $("#searchInput")[0].value;
+      console.log(lessonName)
+      requestSearchByName(lessonName)
+    })
+
+    //网络根据名字查询课程
+    function requestSearchByName(lessonName, page) {
+      if (lessonName) {
+        //先清屏
+        $("#result-table").empty();
+        //让学院匹配项还原
+        $("#collegeSelect")[0].value = ""
+          //再请求并添加
+        let url = BaseURL + "/dz/lesson/search_name?name=" + lessonName;
+        if (page) {
+          //进行分页
+          url += "&page=" + page + "&limit=" + MaxPerPage
+        }
+
+        $.ajax({
+          url,
+          success: function(response) {
+            //保存数据
+            let result = JSON.parse(response);
+            lessonList = result.list;
+            totalPage = result.pages;
+            //根据结果更新当前页数，避免网络请求异常但客户端更新了页数
+            currentPage = result.pageNum;
+            total = result.total;
+            console.log(result)
+              //添加Dom
+            for (let lesson of lessonList) {
+              $("#result-table").append(`
+            <div class="tb-row">
+              <div class="tb-col lessonID" >${lesson.id}</div>
+              <div class="tb-col lessonName" >${lesson.name}</div>
+              <div class="tb-col deleteBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12V12ZM6 11.25C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H6Z" fill="#B90012"/>
+                </svg>
+          </div>
+          <div class="tb-col addBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12ZM12.75 6C12.75 5.80109 12.671 5.61032 12.5303 5.46967C12.3897 5.32902 12.1989 5.25 12 5.25C11.8011 5.25 11.6103 5.32902 11.4697 5.46967C11.329 5.61032 11.25 5.80109 11.25 6V11.25H6C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H11.25V18C11.25 18.1989 11.329 18.3897 11.4697 18.5303C11.6103 18.671 11.8011 18.75 12 18.75C12.1989 18.75 12.3897 18.671 12.5303 18.5303C12.671 18.3897 12.75 18.1989 12.75 18V12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H12.75V6Z" fill="#0064C2"/>
+              </svg>
+              </div>
+            </div>
+                `);
+            }
+
+            //请求成功更新控制栏
+            refreshControllerBtn();
+            console.log(currentPage + "/" + totalPage + ":" + total + "条")
+          }
+        });
+      }
+    }
+
+    //跳页按钮功能
+    $("#firstBtn").click(() => {
+      lessonRequest(1);
+    })
+
+    $("#preBtn").click(() => {
+      lessonRequest(currentPage - 1);
+    })
+
+    $("#nextBtn").click(() => {
+      lessonRequest(currentPage + 1);
+    })
+
+    $("#lastBtn").click(() => {
+      lessonRequest(totalPage);
+    })
+
+    //计数数据更新
+    function refreshDataNumsInfo() {
+      $("#dataNumInfo").html(`${currentPage}/${totalPage} 共${total}条`)
+    }
+
+    //按钮刷新事件
+    function refreshControllerBtn() {
+      if (currentPage == 0) {
+        //页面没请求数据，全隐藏
+        $("#firstBtn").css("visibility", "hidden");
+        $("#preBtn").css("visibility", "hidden");
+        $("#nextBtn").css("visibility", "hidden");
+        $("#lastBtn").css("visibility", "hidden");
+        $("#dataNumInfo").css("visibility", "hidden");
+        refreshDataNumsInfo();
+        return;
+      }
+      if (currentPage <= 1) {
+        $("#firstBtn").css("visibility", "hidden");
+        $("#preBtn").css("visibility", "hidden");
+        $("#nextBtn").css("visibility", "visible");
+        $("#lastBtn").css("visibility", "visible");
+        $("#dataNumInfo").css("visibility", "visible");
+        refreshDataNumsInfo();
+        return;
+      }
+      if (currentPage >= totalPage) {
+        $("#firstBtn").css("visibility", "visible");
+        $("#preBtn").css("visibility", "visible");
+        $("#nextBtn").css("visibility", "hidden");
+        $("#lastBtn").css("visibility", "hidden");
+        $("#dataNumInfo").css("visibility", "visible");
+        refreshDataNumsInfo();
+        return;
+      }
+      //否则全部显示
+      $("#firstBtn").css("visibility", "visible");
+      $("#preBtn").css("visibility", "visible");
+      $("#nextBtn").css("visibility", "visible");
+      $("#lastBtn").css("visibility", "visible");
+      $("#dataNumInfo").css("visibility", "visible");
+      refreshDataNumsInfo();
+    }
+
+    //页面启动时刷新一次
+    refreshControllerBtn()
+  })
+
+  //课程表===============================================
+  $(function() {
+    //局部变量
+
+
+    //关闭按钮
+    $("#closeScheduleBtn").click(() => {
+      $("#schedule").css("display", "none")
+    })
+
+    requestRefreshSchedule = function() {
+      //先清空
+      $(".sd-row").empty();
+      $(".sd-row").removeClass("sd-row-ac")
+        //因为不能直接获取用户名，因此让服务端通过session发送
+      let url = BaseURL + "/schedule/get" +
+        "?username=2016101011100";
+      console.log(url)
+      $.ajax({
+        url,
+        success: function(response) {
+          scheduleList = JSON.parse(response);
+          console.log(scheduleList);
+
+          //下一步是添加课程（通过schedule序号）
+          for (let schedule of scheduleList) {
+            //计算出行列（两个都是从0开始）
+            let col = parseInt((schedule.schedule - 1) / 5);
+            let row = (schedule.schedule - 1) % 5;
+            //给对应sd-row添加sd-row-ac（显示）
+            let item = $(".sd-col").eq(col).children(".sd-row").eq(row);
+            item.addClass("sd-row-ac");
+            //给对应item添加内容：课名——老师名
+            item.append(`<p>${schedule.lessonName}——${schedule.teacherName}</p>`)
+          }
+
+        }
+      });
+    }
+
+    //以下是页面启动时，自动请求的数据
+    requestRefreshSchedule();
+
+    let currentClickInstruct;
+    $("#schedule-table").on("click", ".sd-row", e => {
+      let innerText = $(e.target).html().replace("<p>", "").replace("</p>", "");
+      let arr = innerText.split("——");
+      let lessonName = arr[0];
+      let teacherName = arr[1];
+      // 开始网络搜索该课程
+      let url = BaseURL + "/dz/instruct/search2?lesson_name=" + lessonName +
+        "&teacher_name=" + teacherName;
+      console.log(url);
+      $.ajax({
+        url,
+        success: function(response) {
+          currentClickInstruct = JSON.parse(response)[0];
+          console.log(currentClickInstruct);
+          //成功就将这些数据贴到scheduleDiolog上
+          //先清空
+          $("#scheduleDiolog p").remove();
+          //再添加
+          $("#scheduleDiolog").append(`
+          <p>课程名：${currentClickInstruct.lessonName}<br>
+            老师：${currentClickInstruct.teacherName}<br>
+            班级：${currentClickInstruct.className}<br>
+           </p>
+          `)
+            //打开diolog
+          $("#scheduleDiolog").css("display", "block");
+        }
+      });
+    })
+
+    //关闭详情弹窗按钮
+    $("#closeScheduleDiologBtn").click(() => {
+      $("#scheduleDiolog").css("display", "none");
+    })
+
+    //取消选课按钮
+    $("#cancelLessonBtn").click(() => {
+      //提示是否取消
+      $("#cancelLessonDiolog").css("display", "block");
+    })
+
+    $("#confirmCL").click(() => {
+      //网络请求删除课程
+      let url = BaseURL + "/dz/instruct/delete?class_id=" + currentClickInstruct.classId +
+        "&lesson_id=" + currentClickInstruct.lessonId;
+      console.log(url);
+      $.ajax({
+        url,
+        success: function(response) {
+          //刷新课程表
+          console.log("response:")
+          console.log(response);
+          requestRefreshSchedule();
+          console.log("课程表刷新");
+        }
+      });
+      //关闭弹窗
+      $("#cancelLessonDiolog").css("display", "none");
+    })
+
+    $("#cancelCL").click(() => {
+      //关闭弹窗
+      $("#cancelLessonDiolog").css("display", "none");
+    })
+
+  })
+
+
+
+
+  //顶部栏===============================================
+  $(function() {
+
+    //课程表按钮
+    $("#scheduleEntry").click(() => {
+        $("#schedule").css("display", "block")
+      })
+      //风格按钮
+    $(".style-btn").click(() => {
+      $(".style-content").css("display", "block")
+    })
+
+    $(".style-item").click(() => {
+      $(".style-content").css("display", "none")
+      console.log($(event.target).index())
+      $("body").removeClass()
+    })
+
+    $("#styleItem1").click(() => {
+      $("body").addClass("style1")
+    })
+    $("#styleItem2").click(() => {
+      $("body").addClass("style2")
+    })
+    $("#styleItem3").click(() => {
+      $("body").addClass("style3")
+    })
+    $("#styleItem4").click(() => {
+      $("body").addClass("style4")
+    })
+
+    //刷新学生信息
+    $.ajax({
+      url: BaseURL + "/dz/student/get?username=2016101011100",
+      success: function(response) {
+        let result = JSON.parse(response);
+        console.log(result)
+        studentId = result.id;
+        studentName = result.name;
+        $("#StudentInfo").empty();
+        $("#StudentInfo").append(`
+        <p>${studentName}</p>
+        <p>${studentId}</p>
+        `)
+
+      }
+    });
+  })
+
+  //底部栏==========================================
+  $(function() {
+    $("#exit").click(() => {
+      $("#exit").css("transform", "translateX(120px)");
+      $("#exitConfirm").css("transform", "translateX(-400px)");
+    })
+
+    $("#cancelExit").click(() => {
+      $("#exitConfirm").css("transform", "translateX(0px)");
+      $("#exit").css("transform", "translateX(0px)");
+    })
+
+    $("#confirmExit").click(() => {
+      location.href = "/LessonSystem/cancelLogin.jsp"
+    })
+  })
+</script>
+
+</html>

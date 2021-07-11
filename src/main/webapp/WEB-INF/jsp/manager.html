@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选课管理系统</title>
+  <link rel="stylesheet" href="/LessonSystem/manager.css">
+  <script src="/LessonSystem/jquery-1.11.3.min.js"></script>
+</head>
+
+<body class="style3">
+  <header>
+    <h1>选课管理系统</h1>
+    <div class="choose-style">
+      <p>风格</p>
+      <div class="style-btn"></div>
+      <div class="style-content">
+        <!-- 典雅 -->
+        <div class="style-item style1" id="styleItem1">
+          <p class="style-name">典雅</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 艳丽 -->
+        <div class="style-item style2" id="styleItem2">
+          <p class="style-name">艳丽</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 卡通 -->
+        <div class="style-item" id="styleItem3">
+          <p class="style-name">卡通</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 科技 -->
+        <div class="style-item" id="styleItem4">
+          <p class="style-name">科技</p>
+          <div class="color-list">
+            <div class="list1">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="list2">
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <left></left>
+  <center>
+    <div class="top-options">
+      <div class="option-button active_option" id="lessonSysBtn">课程系统</div>
+      <div class="option-button" id="instructSysBtn">授课系统</div>
+    </div>
+    <!-- 课程系统页面 -->
+    <div id="lessonSystem">
+      <div class="match-bar">
+        <div id="match-form">
+          <div class="match-item">
+            <label>学院</label>
+            <select name="college_id" id="collegeSelect"></select>
+          </div>
+          <button class="submitButton" id="submitButton">查询</button>
+        </div>
+      </div>
+      <div id="result-table">
+        <!-- <div class="tb-row"> -->
+        <!-- <div class="tb-col" id="lessonID">20171310</div>
+          <div class="tb-col" id="lessonName">近代史纲要</div>
+          <div class="tb-col deleteBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12V12ZM6 11.25C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H6Z" fill="#B90012"/>
+              </svg>
+          </div> -->
+        <!-- </div> -->
+        <!-- 提示弹窗 -->
+      </div>
+      <div class="diolog" id="diolog">
+        <button class="confirmDelete" id="confirmDelete">确定</button>
+        <button class="cancleDelete" id="cancleDelete">取消</button>
+      </div>
+      <div class="controllerBar">
+        <button class="controlBtn" id="firstBtn">第一页</button>
+        <button class="controlBtn" id="preBtn">上一页</button>
+        <p id="dataNumInfo">0/0页 共0条</p>
+        <button class="controlBtn" id="nextBtn">下一页</button>
+        <button class="controlBtn" id="lastBtn">最后一页</button>
+      </div>
+    </div>
+
+    <!-- 授课系统页面 -->
+    <div id="InstructSystem">
+      <div class="match-bar">
+        <div id="match-form">
+          <div class="match-item">
+            <label>学院</label>
+            <select name="college_id" id="collegeSelect2"></select>
+          </div>
+          <div class="match-item2">
+            <label>班级</label>
+            <select name="class_id" id="classSelect2"></select>
+          </div>
+          <button class="submitButton" id="submitButton2">查询</button>
+        </div>
+      </div>
+      <div class="result-table" id="result-table2">
+        <!-- <div class="tb-row"> -->
+        <!-- 班级  课程  老师  日程 -->
+        <!-- <div class="tb-col" id="className">软件工程1702班</div>
+          <div class="tb-col" id="lessonName">近代史纲要</div>
+          <div class="tb-col" id="teacherName">罗利东</div>
+          <div class="tb-col" id="schedule">周3第3节</div> -->
+
+        <!-- <div class="tb-col deleteBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12V12ZM6 11.25C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H6Z" fill="#B90012"/>
+              </svg>
+          </div> -->
+        <!-- </div> -->
+        <!-- 提示弹窗 -->
+      </div>
+      <div class="diolog" id="diolog2">
+        <button class="confirmDelete" id="confirmDelete2">确定</button>
+        <button class="cancleDelete" id="cancleDelete2">取消</button>
+      </div>
+      <div class="controllerBar">
+        <button class="controlBtn" id="firstBtn2">第一页</button>
+        <button class="controlBtn" id="preBtn2">上一页</button>
+        <p id="dataNumInfo2">0/0页 共0条</p>
+        <button class="controlBtn" id="nextBtn2">下一页</button>
+        <button class="controlBtn" id="lastBtn2">最后一页</button>
+      </div>
+    </div>
+  </center>
+  <footer>
+    <h1>Produce By 邓洲</h1>
+    <div id="exit">退出系统</div>
+    <div id="exitConfirm">
+      <p>确认要退出系统吗？</p>
+      <button id="confirmExit">确认</button>
+      <button id="cancelExit">取消</button>
+    </div>
+  </footer>
+</body>
+
+<script>
+  const BaseURL = "http://192.168.2.101:8080/LessonSystem";
+  //每页数据最大显示数
+  const MaxPerPage = 20;
+  window.onload = () => {
+    let lessonSysBtn = document.getElementById("lessonSysBtn");
+    let instructSysBtn = document.getElementById("instructSysBtn");
+    let lessonSystem = document.getElementById("lessonSystem");
+    let InstructSystem = document.getElementById("InstructSystem");
+    // let collegeSelect = document.getElementById("collegeSelect");
+
+
+    lessonSysBtn.onclick = () => {
+      instructSysBtn.classList.remove("active_option");
+      lessonSysBtn.classList.add("active_option");
+      lessonSystem.style.display = "block";
+      InstructSystem.style.display = "none";
+    }
+
+    instructSysBtn.onclick = () => {
+      instructSysBtn.classList.add("active_option");
+      lessonSysBtn.classList.remove("active_option");
+      lessonSystem.style.display = "none";
+      InstructSystem.style.display = "block";
+    }
+
+
+
+  }
+
+  // 课程系统逻辑==========================================================
+  $(function() {
+    //函数域局部变量申明
+    let collegeList = [];
+    let lessonList = [];
+    let currentPage = 0;
+    let totalPage = 0;
+    let total = 0;
+    //元素定义
+    const diolog = $("#diolog");
+    const confirmDelete = $("#confirmDelete");
+    const cancleDelete = $("#cancleDelete")
+
+    //学院列表点击
+    $("#collegeSelect")[0].onclick = () => {
+      if (collegeList.length == 0) {
+        $.ajax({
+          url: BaseURL + "/dz/college/get_all",
+          success: res => {
+            collegeList = JSON.parse(res)
+            console.log(collegeList)
+              //刷新学院列表
+            refreshListView();
+          },
+          error: err => {
+            throw (err)
+          }
+        });
+      }
+    }
+
+    //刷新学院列表
+    function refreshListView() {
+      // let fragment = document.createDocumentFragment();
+      for (let college of collegeList) {
+        $("#collegeSelect").append(`<option value="${college.id}">${college.name}</option>`)
+      }
+    }
+
+
+
+    //查询按钮点击
+    $("#submitButton")[0].onclick = () => {
+      lessonRequest();
+    }
+
+    // 发送ajax请求获取数据
+    function lessonRequest(page) {
+      let url = BaseURL + "/dz/lesson/search?college_id=" + $("#collegeSelect")[0].value;
+      if (page) {
+        url += "&page=" + page + "&limit=" + MaxPerPage
+      }
+      console.log(url);
+      $.ajax({
+        url,
+        success: function(response) {
+          console.log(response)
+          let result = JSON.parse(response);
+          lessonList = result.list;
+          totalPage = result.pages;
+          //根据结果更新当前页数，避免网络请求异常但客户端更新了页数
+          currentPage = result.pageNum;
+          total = result.total;
+
+          //先清空屏幕所有数据
+          $("#result-table").empty();
+          //结果表添加所有数据行
+          for (let lesson of lessonList) {
+            $("#result-table").append(`
+            <div class="tb-row">
+              <div class="tb-col lessonID" >${lesson.id}</div>
+              <div class="tb-col lessonName" >${lesson.name}</div>
+              <div class="tb-col deleteBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12V12ZM6 11.25C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H6Z" fill="#B90012"/>
+                </svg>
+              </div>
+            </div>
+                `);
+          }
+
+          //请求成功更新控制栏
+          refreshControllerBtn();
+          console.log(currentPage + "/" + totalPage + ":" + total + "条")
+        }
+      });
+    }
+
+    //ajax请求删除数据
+
+
+    //结果表委托删除按钮点击事件
+    $("#result-table").on("click", '.deleteBtn', e => {
+      //当前选择行的JQ对象
+      let row = $(e.target).parents('.tb-row');
+      console.log(row)
+        //当前点击的行序号
+      let deleteIndex = row.index();
+      //弹出会话框，提示是否删除
+      diolog.css("display", "block");
+      console.log(diolog);
+
+      //为弹窗添加新的文字内容
+      diolog.append(`
+      <p class="warnning-word" id="warnning-word">确认要删除课程《${lessonList[deleteIndex].name}》？ 所有选择了该课程的班级和同学都会取消该课程。</p>
+      `)
+
+      //弹窗确认按钮事件点击
+      confirmDelete[0].onclick = () => {
+        //从内存中删除对应数据
+        deteleLesson(deleteIndex);
+        //删除对应行
+        row.remove();
+        //弹窗消失
+        diolog.css("display", "none");
+        //清空弹窗警告的文字内容
+        $("#warnning-word").remove();
+      }
+
+    })
+
+    //弹窗取消按钮点击
+    cancleDelete[0].onclick = () => {
+      //弹窗消失
+      diolog.css("display", "none");
+      //清空弹窗警告的文字内容
+      $("#warnning-word").remove();
+    }
+
+    //真实删除课程
+    function deteleLesson(num) {
+      console.log("删除" + num + "号数据")
+        //从内存删除该数据
+      lessonList.splice(num, 1)
+      console.log(lessonList);
+      //发送网络请求删除数据库的数据
+
+    }
+
+    //跳页按钮功能
+    $("#firstBtn").click(() => {
+      lessonRequest(1);
+    })
+
+    $("#preBtn").click(() => {
+      lessonRequest(currentPage - 1);
+    })
+
+    $("#nextBtn").click(() => {
+      lessonRequest(currentPage + 1);
+    })
+
+    $("#lastBtn").click(() => {
+      lessonRequest(totalPage);
+    })
+
+    //计数数据更新
+    function refreshDataNumsInfo() {
+      $("#dataNumInfo").html(`${currentPage}/${totalPage} 共${total}条`)
+    }
+
+    //按钮刷新事件
+    function refreshControllerBtn() {
+      if (currentPage == 0) {
+        //页面没请求数据，全隐藏
+        $("#firstBtn").css("visibility", "hidden");
+        $("#preBtn").css("visibility", "hidden");
+        $("#nextBtn").css("visibility", "hidden");
+        $("#lastBtn").css("visibility", "hidden");
+        $("#dataNumInfo").css("visibility", "hidden");
+        refreshDataNumsInfo();
+        return;
+      }
+      if (currentPage == 1) {
+        $("#firstBtn").css("visibility", "hidden");
+        $("#preBtn").css("visibility", "hidden");
+        $("#nextBtn").css("visibility", "visible");
+        $("#lastBtn").css("visibility", "visible");
+        $("#dataNumInfo").css("visibility", "visible");
+        refreshDataNumsInfo();
+        return;
+      }
+      if (currentPage == totalPage) {
+        $("#firstBtn").css("visibility", "visible");
+        $("#preBtn").css("visibility", "visible");
+        $("#nextBtn").css("visibility", "hidden");
+        $("#lastBtn").css("visibility", "hidden");
+        $("#dataNumInfo").css("visibility", "visible");
+        refreshDataNumsInfo();
+        return;
+      }
+      //否则全部显示
+      $("#firstBtn").css("visibility", "visible");
+      $("#preBtn").css("visibility", "visible");
+      $("#nextBtn").css("visibility", "visible");
+      $("#lastBtn").css("visibility", "visible");
+      $("#dataNumInfo").css("visibility", "visible");
+      refreshDataNumsInfo();
+    }
+
+    //页面启动时刷新一次
+    refreshControllerBtn()
+
+
+
+  })
+
+
+  //授课系统逻辑==========================================================
+  $(function() {
+    //函数域局部变量申明
+    let collegeList = [];
+    let instructList = [];
+    let diologIndex = 0;
+    let classList = [];
+    //分页三项数据
+    let currentPage = 0;
+    let totalPage = 0;
+    let total = 0;
+    //这个crrentCollege是用于记录当前班级选项对应的CollegeId，
+    //如果对应就不执行点击操作，否则就执行清空和网络查询并重新添加。
+    let crrentCollege = 0;
+    //元素定义
+    const diolog = $("#diolog2");
+    const confirmDelete = $("#confirmDelete2");
+    const cancleDelete = $("#cancleDelete2")
+      //学院列表点击
+    $("#collegeSelect2")[0].onclick = () => {
+      if (collegeList.length == 0) {
+        $.ajax({
+          url: BaseURL + "/dz/college/get_all",
+          success: res => {
+            collegeList = JSON.parse(res);
+            console.log(collegeList)
+              //刷新学院列表
+            refreshCollegeListView();
+            //班级列表出现
+            $(".match-item2").css("display", "block")
+          },
+          error: err => {
+            throw (err)
+          }
+        });
+      }
+    }
+
+    $("#collegeSelect2")[0].onchange = () => {
+      //重新选择了学院就刷新班级选项
+      refreshClassListView()
+    }
+
+    //班级列表点击
+    $("#classSelect2")[0].onclick = () => {
+      //先判断当前列表学院是否相同,相同则跳过执行
+      if (crrentCollege == $("#collegeSelect2")[0].value) return;
+      //查询当前学院ID
+      let collegeId = $("#collegeSelect2")[0].value;
+      //及时更新当前的CurrentCollege
+      crrentCollege = collegeId;
+      console.log(collegeId)
+      $.ajax({
+        url: BaseURL + "/dz/class/get?college_id=" + collegeId,
+        success: res => {
+          classList = JSON.parse(res);
+          console.log(classList)
+            //刷新班级列表
+          refreshClassListView();
+        },
+        error: err => {
+          throw (err)
+        }
+      });
+    }
+
+    //刷新学院列表
+    function refreshCollegeListView() {
+      // let fragment = document.createDocumentFragment();
+      for (let college of collegeList) {
+        $("#collegeSelect2").append(`<option value="${college.id}">${college.name}</option>`)
+      }
+    }
+
+    //刷新班级列表
+    function refreshClassListView() {
+      //先清空班级列表再查询添加
+      $("#classSelect2").empty();
+      $("#classSelect2").append(`<option value=""></option>`)
+      for (let classItem of classList) {
+        $("#classSelect2").append(`<option value="${classItem.id}">${classItem.name}</option>`)
+      }
+    }
+
+    //查询按钮点击
+    $("#submitButton2")[0].onclick = () => {
+      instructRequst()
+    }
+
+    function instructRequst(page) {
+      // 发送ajax请求获取数据
+      let url = BaseURL + "/dz/instruct/search?college_id=" + $("#collegeSelect2")[0].value;
+      //判断是否选择了班级
+      let classId = $("#classSelect2")[0].value;
+      if (classId != "") {
+        //如果选择了班级就在url上拼接上
+        url += "&class_id=" + classId;
+      }
+      if (page) {
+        url += "&page=" + page + "&limit=" + MaxPerPage
+      }
+      console.log('classId:' + classId);
+      console.log(url);
+      $.ajax({
+        url,
+        success: function(response) {
+          // console.log(response)
+          let result = JSON.parse(response);
+          instructList = result.list;
+          totalPage = result.pages;
+          currentPage = result.pageNum;
+          total = result.total;
+          //先清空屏幕所有数据
+          $("#result-table2").empty();
+          //结果表添加所有数据行
+          for (let instructItem of instructList) {
+            $("#result-table2").append(`
+            <div class="tb-row">
+              <div class="tb-col className" >${instructItem.className}</div>
+              <div class="tb-col lessonName" >${instructItem.lessonName}</div>
+              <div class="tb-col teacherName" >${instructItem.teacherName}</div>
+              <div class="tb-col schedule" >周${parseInt(instructItem.schedule /5) +1}第${instructItem.schedule %5}节</div>
+              <div class="tb-col deleteBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12V12ZM6 11.25C5.80109 11.25 5.61032 11.329 5.46967 11.4697C5.32902 11.6103 5.25 11.8011 5.25 12C5.25 12.1989 5.32902 12.3897 5.46967 12.5303C5.61032 12.671 5.80109 12.75 6 12.75H18C18.1989 12.75 18.3897 12.671 18.5303 12.5303C18.671 12.3897 18.75 12.1989 18.75 12C18.75 11.8011 18.671 11.6103 18.5303 11.4697C18.3897 11.329 18.1989 11.25 18 11.25H6Z" fill="#B90012"/>
+                </svg>
+              </div>
+            </div>
+                `);
+          }
+
+          //请求成功更新控制栏
+          refreshControllerBtn();
+          console.log(currentPage + "/" + totalPage + ":" + total + "条")
+        }
+      });
+    }
+
+    //结果表委托删除按钮点击事件
+    $("#result-table2").on("click", '.deleteBtn', e => {
+      //当前选择行的JQ对象
+      let row = $(e.target).parents('.tb-row');
+      console.log(row)
+        //当前点击的行序号
+      let deleteIndex = row.index();
+      console.log("当前要删除:" + deleteIndex);
+      //弹出会话框，提示是否删除
+      diolog.css("display", "block");
+
+      //为弹窗添加新的文字内容
+      diolog.append(`
+      <p class="warnning-word" id="warnning-word2">确认要删除${instructList[deleteIndex].className}的
+        课程《${instructList[deleteIndex].lessonName}》？ 选择了该课程的班级和同学以及老师都会取消该课程。</p>
+      `)
+
+      //弹窗确认按钮事件点击
+      confirmDelete[0].onclick = () => {
+        //从内存中删除对应数据
+        deteleLesson(deleteIndex);
+        //删除对应行
+        row.remove();
+        //弹窗消失
+        diolog.css("display", "none");
+        //清空弹窗警告的文字内容
+        $("#warnning-word2").remove();
+      }
+
+    })
+
+    //弹窗取消按钮点击
+    cancleDelete[0].onclick = () => {
+      //弹窗消失
+      diolog.css("display", "none");
+      //清空弹窗警告的文字内容
+      $("#warnning-word2").remove();
+    }
+
+    //真实删除课程
+    function deteleLesson(num) {
+      console.log("删除" + num + "号数据")
+        //从内存删除该数据
+      instructList.splice(num, 1)
+      console.log(instructList);
+      //发送网络请求删除数据库的数据
+    }
+
+
+    //跳页按钮功能
+    $("#firstBtn2").click(() => {
+      instructRequst(1);
+    })
+
+    $("#preBtn2").click(() => {
+      instructRequst(currentPage - 1);
+    })
+
+    $("#nextBtn2").click(() => {
+      instructRequst(currentPage + 1);
+    })
+
+    $("#lastBtn2").click(() => {
+      instructRequst(totalPage);
+    })
+
+    //计数数据更新
+    function refreshDataNumsInfo() {
+      $("#dataNumInfo2").html(`${currentPage}/${totalPage} 共${total}条`)
+    }
+
+    //按钮刷新事件
+    function refreshControllerBtn() {
+      if (currentPage == 0 || total <= MaxPerPage) {
+        //页面没请求数据，全隐藏
+        $("#firstBtn2").css("visibility", "hidden");
+        $("#preBtn2").css("visibility", "hidden");
+        $("#nextBtn2").css("visibility", "hidden");
+        $("#lastBtn2").css("visibility", "hidden");
+        $("#dataNumInfo2").css("visibility", "hidden");
+        refreshDataNumsInfo();
+        return;
+      }
+      if (currentPage == 1) {
+        $("#firstBtn2").css("visibility", "hidden");
+        $("#preBtn2").css("visibility", "hidden");
+        $("#nextBtn2").css("visibility", "visible");
+        $("#lastBtn2").css("visibility", "visible");
+        $("#dataNumInfo2").css("visibility", "visible");
+        refreshDataNumsInfo();
+        return;
+      }
+      if (currentPage == totalPage) {
+        $("#firstBtn2").css("visibility", "visible");
+        $("#preBtn2").css("visibility", "visible");
+        $("#nextBtn2").css("visibility", "hidden");
+        $("#lastBtn2").css("visibility", "hidden");
+        $("#dataNumInfo2").css("visibility", "visible");
+        refreshDataNumsInfo();
+        return;
+      }
+      //否则全部显示
+      $("#firstBtn2").css("visibility", "visible");
+      $("#preBtn2").css("visibility", "visible");
+      $("#nextBtn2").css("visibility", "visible");
+      $("#lastBtn2").css("visibility", "visible");
+      $("#dataNumInfo2").css("visibility", "visible");
+      refreshDataNumsInfo();
+    }
+
+    //页面启动时刷新一次
+    refreshControllerBtn()
+  })
+
+  //顶部栏
+  $(function() {
+    $(".style-btn").click(() => {
+      $(".style-content").css("display", "block")
+    })
+
+    $(".style-item").click(() => {
+      $(".style-content").css("display", "none")
+      console.log($(event.target).index())
+      $("body").removeClass()
+    })
+
+    $("#styleItem1").click(() => {
+      $("body").addClass("style1")
+    })
+    $("#styleItem2").click(() => {
+      $("body").addClass("style2")
+    })
+    $("#styleItem3").click(() => {
+      $("body").addClass("style3")
+    })
+    $("#styleItem4").click(() => {
+      $("body").addClass("style4")
+    })
+  })
+
+  //底部栏
+  $(function() {
+    $("#exit").click(() => {
+      $("#exit").css("transform", "translateX(120px)");
+      $("#exitConfirm").css("transform", "translateX(-400px)");
+    })
+
+    $("#cancelExit").click(() => {
+      $("#exitConfirm").css("transform", "translateX(0px)");
+      $("#exit").css("transform", "translateX(0px)");
+    })
+
+    $("#confirmExit").click(() => {
+
+      location.replace("loginOut")
+    })
+  })
+</script>
+
+</html>

@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* 统一使用vw作为自适应单位 */
+
+
+/* 1vw = 19.2px */
+
+.mImgContent {
+  width: 64vw;
+  background-image: linear-gradient(90deg, #555555, #ffffff00);
+  display: flex;
+  justify-content: center;
+  /* overflow: auto; */
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0px -3px 20px #000;
+  margin: 0px 10px 0px auto;
+}
+
+.mImgContent:hover {
+  z-index: 5;
+}
+
+.box {
+  width: 64vw;
+  height: 9vw;
+  transition: ease 1.5s;
+  position: relative;
+}
+
+.box:hover {
+  height: 36vw;
+  transition: ease 1s;
+}
+
+.droppableImage {
+  width: 64vw;
+  /* height: 800px; */
+  height: 100%;
+  /* border: aqua 3px dashed; */
+  position: relative;
+  margin: auto auto 0 auto;
+  display: inline-block;
+  box-sizing: border-box;
+  /* text-align: center; */
+  background: no-repeat center center;
+  background-size: cover;
+}
+
+.droppableImage::before {
+  content: "\260E请拖拽至此处";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+  font-size: 2vw;
+  /* line-height: 800px; */
+  /* margin-left: -80px; */
+  display: inline-block;
+}
+
+.dropover {
+  border: orange 3px dashed;
+}
+
+.dropped {
+  border: 0;
+}
+
+
+/* .dropped::before会在.dropped样式添加的同时添加，它改变的是::before的样式
+而::before不会因class名不同而新建一个伪元素，仍然指向前一个。 */
+
+.dropped::before {
+  z-index: -1;
+}
+
+
+/* 滑动条样式 */
+
+._mCS_1 .mCSB_scrollTools .mCSB_dragger_bar {
+  width: 15px;
+}
+
+
+/* 图片点击锁定，并出现解锁图标 */
+
+.lock {
+  width: 64vw;
+  height: 36vw;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.lock::after {
+  display: inline-block;
+  content: "\25B2";
+  /* bottom: -18px; */
+  width: 64vw;
+  height: 30px;
+  line-height: 30px;
+  padding-bottom: 3px;
+  margin-top: -5px;
+  background-color: #00000088;
+  color: #ffffff88;
+  font-size: 1vw;
+  /* border-radius: 0px 0px 10px 10px; */
+  transition: ease 0.5s;
+}
+
+.lock:hover::after {
+  background-color: #000000cc;
+  color: #ffffffcc;
+}
+
+.cardDSC {
+  display: inline-block;
+  width: 500px;
+}
+
+.introduction {
+  width: 32vw;
+  height: 100%;
+  background-color: #00000088;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: #000 3px;
+  border-style: dotted;
+  box-sizing: border-box;
+}
+
+.introduction h1 {
+  width: 16vw;
+  position: relative;
+  font-size: 2.4vw;
+  left: 14vw;
+  color: #fff;
+}
+
+.introduction p {
+  width: 16vw;
+  position: relative;
+  left: 14vw;
+  padding-top: 2vw;
+  color: #bbbbff;
+  font-size: 2vw;
+}
