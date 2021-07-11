@@ -1,0 +1,19 @@
+通过Maven下载相关的Springboot-test依赖（新建一个Maven项目，并替换pom.xml文件）。
+mvn install  下载所有依赖包并maven刷新依赖包（一定要刷新）
+然后将RandomDataExcutor放到test文件夹里，
+MybatisPlusApplication.java放到resources文件夹。
+将配置文件添加到项目环境。
+直接执行Random类里面的方法（执行有顺序，按照期末报告里的2.1数据采集操作），否则因为表间依赖导致无法生成可用数据。
+
+———English Ver.—————————————————
+Download the spring boot test dependencies from Maven (create a new Maven project and replace the POM. XML file).
+
+MVN install downloads all dependent packages and Maven refreshes them (be sure to refresh)
+
+Then put random data exciter in the test folder,
+
+Mybatisplusapplication.java in the Resources folder.
+
+Add the configuration file to the project environment.
+
+Directly execute the methods in the random class (in order, according to the 2.1 data collection operation in the final report), otherwise the available data cannot be generated due to the inter table dependency.
