@@ -1,7 +1,0 @@
-1.项目运行前必须使用maven安装所有依赖,
-mvn install。
-
-2.查看项目启动路径是否为http://localhost:8080/LessonSystem，因为文件夹名字或项目名为demo5_SSM，实际运行项目名为LessonSystem。
-如果不是，请在TomCat Server 配置中修改项目启动路径。
-
-3.如果还是不行，可以联系我QQ1357621322，我会将项目挂载在云服务器上，可以直接通过HTTP路径访问项目。
