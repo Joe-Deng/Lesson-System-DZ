@@ -1,9 +1,0 @@
-架构：SpringMVC + Spring +Mybatis，
-
-下面是版本	(因为担心版本不对应运行不了，全系列都是版本8）
-jdk	1.8
-tomcat	8.0.50
-jdbc	8.0.19
-MySQL	8.0.22
-
-另外的自己通过Maven安装pom.xml中的依赖。
