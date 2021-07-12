@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>demo5_SSM</artifactId>
+    <artifactId>LessonSystem</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>demo5_SSM</name>
+    <name>LessonSystem</name>
     <packaging>war</packaging>
 
     <properties>

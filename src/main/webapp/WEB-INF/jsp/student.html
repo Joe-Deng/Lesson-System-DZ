@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="cache.manifest">
 
 <head>
   <meta charset="UTF-8">
@@ -523,7 +523,7 @@
         //真实网络取消课程
         //网络请求删除课程
         let url = BaseURL + "/dz/instruct/delete?class_id=" + lessonList[deleteIndex].classId +
-                "&lesson_id=" + currentClickInstruct.lessonId;
+          "&lesson_id=" + currentClickInstruct.lessonId;
         console.log(url);
         $.ajax({
           url,

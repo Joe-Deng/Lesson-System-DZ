@@ -1,4 +1,5 @@
 com\dz\entity\TeacherSchedule.class
+com\org\controller\Schedule.class
 com\dz\entity\Lesson.class
 com\dz\entity\ManagerLog.class
 com\dz\service\StudentService.class
@@ -27,6 +28,7 @@ com\org\Utils\MybatisUtils.class
 com\org\pojo\Student.class
 com\dz\entity\Instruct.class
 com\dz\service\impl\LessonServiceImpl.class
+com\dz\entity\InstructInfo.class
 com\dz\service\impl\StudentServiceImpl.class
 com\org\pojo\UserManager.class
 com\org\pojo\Lesson.class
@@ -81,3 +83,4 @@ com\org\mapper\LessonMapper.class
 com\dz\entity\UserManager.class
 com\dz\mapper\LessonMapper.class
 com\org\mapper\UserManagerMapper.class
+com\org\controller\Register.class

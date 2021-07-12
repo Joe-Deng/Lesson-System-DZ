@@ -1,0 +1,16 @@
+CACHE MANIFEST
+#v0.11
+
+
+# CACHE 要存哪些文件
+CACHE:
+../../student.css
+
+
+# NETWORK 不存哪些文件
+NETWORK:
+
+
+# FALLBACK 如果没有找到资源，就会顺序请求下面的链接
+FALLBACK:
+./student.html
